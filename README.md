@@ -41,7 +41,7 @@ app/
 ## 🛠️ Como Rodar o Projeto
 
 ### 📦 Requisitos
-
+- git clone https://github.com/LuccaRizzon/assessment-python.git
 - Docker
 
 ---
