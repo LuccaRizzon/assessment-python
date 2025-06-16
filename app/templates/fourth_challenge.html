@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Challenge 4 - Fibonacci{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="text-center mb-4">Challenge 4: Fibonacci Sequence</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form method="POST">
+            <div class="mb-3">
+              <label for="number" class="form-label">Enter a non-negative integer (n):</label>
+              <input type="text" id="number" name="number" class="form-control" placeholder="e.g. 10" value="{{ value }}">
+            </div>
+            <button type="submit" class="btn btn-success">Calculate</button>
+          </form>
+
+          {% if result is not none %}
+          <hr>
+          <h5>Fibonacci result:</h5>
+          <p class="fs-4 text-primary">{{ result }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

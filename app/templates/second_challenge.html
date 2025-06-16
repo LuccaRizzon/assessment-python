@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Challenge 2 - Stack{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="text-center mb-4">Challenge 2: Stack Simulation</h1>
+
+  {% if message %}
+  <div class="alert alert-info">{{ message }}</div>
+  {% endif %}
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Stack Items</h5>
+          <ul class="list-group mb-3">
+            {% for item in items|reverse %}
+            <li class="list-group-item {% if loop.first %}active text-white{% endif %}">
+              {{ item }}
+              {% if loop.first %}<span class="badge bg-light text-dark float-end">Top</span>{% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+
+          <p><strong>Top item:</strong> {{ top if top is not none else "None" }}</p>
+          <p><strong>Size:</strong> {{ size }}</p>
+
+          <form method="POST" class="mb-3 d-flex">
+            <input name="value" class="form-control me-2" placeholder="Add to stack" required minlength="1" maxlength="60">
+            <button type="submit" class="btn btn-success">Push</button>
+          </form>
+
+          <form action="/second_challenge/clear" method="post">
+            <button type="submit" class="btn btn-danger w-100 mb-3">Clear Stack</button>
+          </form>
+
+          <a href="/" class="btn btn-primary w-100">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

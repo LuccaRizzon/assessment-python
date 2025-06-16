@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Challenge 3 - Word Counter{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="text-center mb-4">Challenge 3: Word Frequency Counter</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form method="POST">
+            <div class="mb-3">
+              <label for="words" class="form-label">Enter a comma-separated list of words:</label>
+              <input type="text" id="words" name="words" class="form-control" placeholder="e.g. apple, banana, apple" value="{{ words }}">
+            </div>
+            <button type="submit" class="btn btn-success">Count Words</button>
+          </form>
+
+          {% if result %}
+          <hr>
+          <h5>Result:</h5>
+          <ul class="list-group mt-3">
+            {% for word, count in result.items() %}
+            <li class="list-group-item d-flex justify-content-between">
+              <span>{{ word }}</span>
+              <span class="badge bg-primary rounded-pill">{{ count }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
